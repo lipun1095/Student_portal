@@ -37,10 +37,10 @@ pip3 install -r requirements.txt
 ```
 First You Have to make migrations the db
 ```
-python3 manage.py runserver makemigrations
+python3 manage.py makemigrations
 ```
 After You Have to make migrate the db
 ```
-python3 manage.py runserver migrate
+python3 manage.py migrate
 ```
 Simple run command `python3 manage.py runserver 0.0.0.0:8000` to run the project.
