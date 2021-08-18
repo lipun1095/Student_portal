@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% extends 'base.html'%}
+{% block block_body %}
+<body>
+    <div class="jumbotron" align="center">
+        <h2>ADD STUDENT INFORMATION </h2><hr>
+        <form method="post">
+            {{ student_form.as_p }}
+            {% csrf_token %}
+            <input type="submit" value="Add Student" class="btn btn-primary btn-lg">
+        </form>
+        <br>
+        <button type="button" class="btn btn-primary btn-lg" onclick="location.href='{% url 'student_list' %}'">Back To List</button>
+    </div>
+
+</body>
+{% endblock %}

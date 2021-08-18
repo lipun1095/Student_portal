@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% extends 'base.html'%}
+{% block block_body %}
+<body>
+    <div class="jumbotron" align="center">
+        <h2>STUDENT LIST</h2><hr>
+         <div class="topnav">
+            <a  href='/'>Home</a>
+          <div class="search-container">
+            <form action="{% url 'student_list' %}">
+              <input type="text" placeholder="Search.." name="search">
+              <button type="submit"><i class="fa fa-search"></i> Search</button>
+            </form>
+          </div>
+        </div>
+        </script>
+        {% if all_student%}
+        <table>
+            <thead>
+            <th>  ROLL NO  </th>
+            <th>  NAME  </th>
+            <th>  CLASS  </th>
+            <th>  SCHOOL  </th>
+            <th>  MOBILE NUMBER  </th>
+            <th>  ADDRESS  </th>
+            <th>  Action  </th>
+            </thead>
+            {% for p in all_student%}
+            <tr>
+                <td>{{ p.roll_no }}</td>
+                <td><span>
+                              <a href="/view_mark/{{ p.roll_no }}/" >{{ p.name }}</a>
+                          </span></td>
+                <td>{{ p.class_name }}</td>
+                <td>{{ p.school_name }}</td>
+                <td>{{ p.mobile_number }}</td>
+                <td>{{ p.address }}</td>
+                <td> <span>
+                              <a href="/edit_student/{{ p.roll_no }}/" >Update</a>
+                          </span>
+                      <span><a href="/delete_student/{{ p.roll_no }}/" >Delete</a></span>
+                  </td></td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+        <br>
+        <button type="button" class="btn btn-primary btn-lg" onclick="location.href='{% url 'add_student' %}'">ADD STUDENT</button>
+        <!-- <button type="button" class="btn btn-primary btn-lg" onclick="location.href='{% url 'add_student_mark' %}'">ADD STUDENT MARK</button> -->
+    </div>
+
+</body>
+</html>
+{% endblock %}

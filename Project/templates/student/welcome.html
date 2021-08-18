@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+{% extends 'base.html'%}
+{% block block_body %}
+<body>
+    <div class="jumbotron" align="center">
+    	<h2><u>Welcome To Student Portal</u></h2>
+        <br>
+        <h4> Don't have account please  <button type="button" class="btn btn-primary " onclick="location.href='{% url 'signup' %}'">Sign Up</button> </h4>
+        <h4> Already have a account  <a href="/accounts/login">Login</a> </h4>
+
+    </div>
+
+</body>
+</html>
+{% endblock %}
+

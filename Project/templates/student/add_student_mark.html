@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% extends 'base.html'%}
+{% block block_body %}
+<div class="jumbotron">
+  <h1>Add Student Mark.</h1><hr>
+  <form method="post">
+    {% csrf_token %}
+    <p>The select element defines a drop-down list:</p>
+
+	  <label for="student">Select Stdent:</label>
+	   <select  name="student" required>
+        <option value="">-----Select Student-----</option>
+        {% for sut in student %}
+            <option value="{{ sut.roll_no }}" >{{ sut.name }}</option>
+        {% endfor %}
+    </select><br><br>
+    Math : <input type="number" name="maths" value="{{ student_form.maths }}"><br><br>
+    Physics: <input type="number" name="physics" value="{{ student_form.physics }}"><br><br>
+    Chemistry: <input type="number" name="chemistry" value="{{ student_form.chemistry }}"><br><br>
+    Biology: <input type="number" name="biology" value="{{ student_form.biology }}" ><br><br>
+    English: <input type="number" name="english" value="{{ student_form.english }}" ><br><br>
+    <input type="submit" class="btn btn-primary btn-lg" value="Submit">
+    <button type="button" class="btn btn-primary btn-lg" onclick="location.href='{% url 'student_list' %}'">Cancel</button>
+
+  </form>
+</div>
+{% endblock %}
+
